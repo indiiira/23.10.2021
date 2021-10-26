@@ -287,8 +287,7 @@ namespace homework
             Console.WriteLine("Домашняя работа  8.1");
             SearchMail();
 
-            Console.WriteLine("Домашняя работа  8.2");
-
+            
             Console.ReadKey();
 
             }
