@@ -6,20 +6,14 @@ using System.Threading.Tasks;
 
 namespace _23._10._2021
 {
-    class Boss:Worker
+    class Boss:Employee
     {
 
-        public Boss()
+        public Boss(string name, Employee head) : base(name, head)
         {
 
         }
-        public Boss(string name, ref int lastID) : base(name, ref lastID)
-        {
 
-        }
-        public Boss(string name, string surname, Worker head, ref int lastID) : base(name, surname, head, ref lastID)
-        {
-
-        }
+    
     }
 }

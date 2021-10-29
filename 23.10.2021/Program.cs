@@ -10,76 +10,64 @@ namespace _30._10._2021
     {
         static void Main(string[] args)
         {
-            var workers = new List<Worker>();
-            int lastID = 0;
-            ///BOSS
-            workers.Add(new Boss("Борис", ref lastID));
-            ///BOSS
+            List<Department> departments = new List<Department>();
+            departments.Add(new Department("ОИТ"));
+            departments.Add(new Department("ОБ"));
+            List<Sektor> sektors = new List<Sektor>();
+            sektors.Add(new Sektor("Engineers"));
+            sektors.Add(new Sektor("Dev"));
 
-            ///AssistantBoss
-            workers.Add(new BossAssistant("О Ильхам", ref lastID, workers[lastID - 1]));
-            ///AssistantBoss
+            //Bosses
+            Boss boss = new Boss("Борис", null);
+            BossAssistant assistant = new BossAssistant("О Ильхам", boss);
 
-            ///MainDeveloper
-            workers.Add(new MainDeveloper("Сергей", ref lastID, workers[lastID - 1]));
-            ///MainDeveloper
+            //
+            HeadOfDepartment headBuh = new HeadOfDepartment("Рашид", departments[1], boss);
+            MainPersonOfDepartment MainBuh = new MainPersonOfDepartment("Лукас", departments[1], headBuh);
+            //OIT
+            HeadOfDepartment headOIT = new HeadOfDepartment("Оркадий", departments[0], assistant);
+            MainPersonOfDepartment mainOIT = new MainPersonOfDepartment("Володя", departments[0], headOIT);
 
-            ///MainSystemWorker
-            workers.Add(new MainSystemWorker("Ильшат", ref lastID, workers[lastID - 2]));
-            ///MainSystemWorker
+            //Developer
+            HeadOfDevelopers bossDev = new HeadOfDevelopers("Сергей", departments[0], sektors[1], mainOIT);
+            MainDeveloper mainDev = new MainDeveloper("Ляйсан", departments[0], sektors[1], bossDev);
 
+            //Developer
+            List<Employee> employers = new List<Employee>();
+            employers.Add(new Developer("Марат", departments[0], sektors[1], mainDev));
+            employers.Add(new Developer("Антон", departments[0], sektors[1], mainDev));
+            employers.Add(new Developer("Ильдар", departments[0], sektors[1], mainDev));
+            employers.Add(new Developer("Дина", departments[0], sektors[1], mainDev));
 
-            ///AssistantSystemWorker
-            workers.Add(new AssistantSystemWorker("Иваныч", ref lastID, workers[lastID - 1]));
-            ///AssistantSystemWorker
-
-            ///AssistantDeveloper
-            workers.Add(new AssistantDeveloper("Ляйсан", ref lastID, workers[lastID - 3]));
-            ///AssistantDeveloper
-
-            //Developers
-            workers.Add(new Developer("Марат", ref lastID, workers[lastID - 1]));
-            workers.Add(new Developer("Антон", ref lastID, workers[lastID - 2]));
-            workers.Add(new Developer("Ильдар", ref lastID, workers[lastID - 3]));
-            workers.Add(new Developer("Дина", ref lastID, workers[lastID - 4]));
-            //Developers
-
-            //SystemWorkers
-            workers.Add(new SystemWorker("Илья", ref lastID, workers[lastID - 6]));
-            workers.Add(new SystemWorker("Витя", ref lastID, workers[lastID - 7]));
-            workers.Add(new SystemWorker("Женя", ref lastID, workers[lastID - 8]));
-            ///SystemWorkers
+            //Engineers
+            HeadEngineer bossEng = new HeadEngineer("Ильшат", departments[0], sektors[0], mainOIT);
+            MainEngineer mainEng = new MainEngineer("Иваныч", departments[0], sektors[0], bossEng);
+            //Engineers
+            employers.Add(new Engineer("Илья", departments[0], sektors[0], mainEng));
+            employers.Add(new Engineer("Витя", departments[0], sektors[0], mainEng));
+            employers.Add(new Engineer("Женя", departments[0], sektors[0], mainEng));
 
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Введите команду <Задача>, чтобы дать задачу; <Выйти> чтобы завершить программу");
+                Console.WriteLine("Введите команду <task>, чтобы дать задачу; <exit> чтобы завершить программу");
                 string input = Console.ReadLine().ToLower();
 
-                switch (input)
+                if (Equals(input, "task"))
                 {
-                    case "задача":
-                        Worker.GiveTask(workers);
-                        break;
-                    case "выйти":
-                        flag = false;
-                        break;
-                    default:
-                        Console.WriteLine("Неверная команда!");
-                        break;
+                    Console.WriteLine("кому хотите дать задачу? <системщикам> <инжинер> <начальники>");
+
                 }
-                Console.ReadKey();
-                Console.Clear();
+                else if (Equals(input, "exit"))
+                {
+                    flag = false;
+                }
+
+
             }
-            Console.WriteLine("Задачи на сегодня завершены,время отдыхать!");
-
-
-
-
-
 
 
         }
     }
-    }
+}
 

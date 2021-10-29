@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace _23._10._2021
 {
-    class Developer:Worker
+    class Developer:Employee
     {
         public Developer()
-        {
-
+        { 
         }
-        public Developer(string name, ref int lastID, Worker head) : base(name, ref lastID, head)
-        {
-
-        }
-        public Developer(string name, string surname, Worker head, ref int lastID) : base(name, surname, head, ref lastID)
+        public Developer(string name, Department department, Sektor sektor, Employee head) : base(name, department, sektor, head)
         {
 
         }

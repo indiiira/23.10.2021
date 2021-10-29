@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace _23._10._2021
 {
-    class BossAssistant:Employee
+    class HeadOfBoss : Employee
     {
-        public BossAssistant(string name, Employee head) : base(name, head)
+        public HeadOfBoss(string name, string surname, Department department, Employee head) : base(name, surname, department, head)
         {
 
         }
     }
 }
+

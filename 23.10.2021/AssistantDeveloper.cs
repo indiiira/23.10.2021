@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace _23._10._2021
 {
-    class AssistantDeveloper:Worker
+    class AssistantDeveloper:Employee
     {
         
-        public AssistantDeveloper(string name, ref int lastID, Worker head) : base(name, ref lastID, head)
+        public AssistantDeveloper(string name, ref int lastID, Employee head) : base(name, ref lastID, head)
         {
 
         }
-        public AssistantDeveloper(string name, string surname, Worker head, ref int lastID) : base(name, surname, head, ref lastID)
+        public AssistantDeveloper(string name, string surname, Employee head, ref int lastID) : base(name, surname, head, ref lastID)
         {
 
         }

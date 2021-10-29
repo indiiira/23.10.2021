@@ -48,14 +48,23 @@
     <Compile Include="Boss.cs" />
     <Compile Include="BossAssistant.cs" />
     <Compile Include="AssistantDeveloper.cs" />
-    <Compile Include="Worker.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="AssistantSystemWorker.cs" />
+    <Compile Include="Engineer.cs" />
+    <Compile Include="HeadDeveloper.cs" />
+    <Compile Include="HeadOfDevelopers.cs" />
     <Compile Include="MainDeveloper.cs" />
+    <Compile Include="MainEngineer.cs" />
+    <Compile Include="MainPersonOfDepartment.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectCompany.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MainSystemWorker.cs" />
-    <Compile Include="SystemWorker.cs" />
+    <Compile Include="HeadEngineer.cs" />
+    <Compile Include="HeadOfBoss..cs" />
+    <Compile Include="HeadOfDepartment.cs" />
+    <Compile Include="Sektor.cs" />
     <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
