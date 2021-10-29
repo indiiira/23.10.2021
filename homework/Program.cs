@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.Generic;
 
 namespace homework
 {
@@ -128,6 +129,58 @@ namespace homework
             string finalst = new string(st);
             return finalst;
         }
+        class Song
+        {
+            private string name; //название песни
+            private string author; //автор песни
+            public Song(string name, string author)
+            {
+                this.author = author;
+                this.name = name;
+            }
+               public string Name
+            {
+                get { return name; }
+            }
+            public string Author
+            {
+                get { return author; }
+            }
+            public string Title()
+            {
+                return name + " " + author;
+            }
+            public override bool Equals(object obj)
+            {
+                if (obj.GetType() != this.GetType())
+                {
+                    return false;
+                }
+                Song song = obj as Song;
+                return (this.name == song.name) && (this.author == song.author);
+            }
+            public static void SearchEqualsSongs(List<Song> songs)
+            {
+                bool isFonded = false;
+                for (int i = 0; i < songs.Count; i++)
+                {
+                    for (int j = i + 1; j < songs.Count; j++)
+                    {
+                        if (songs[i].Equals(songs[j]))
+                        {
+                            isFonded = true;
+                            Console.WriteLine($"Совпали песни под номерами {i + 1} и {j + 1}");
+                            Console.WriteLine($"Песня под названием {songs[i].name} , автор {songs[i].author}");
+                        }
+                    }
+                }
+                if (!isFonded)
+                {
+                    Console.WriteLine("Одинаковых песен не найдено");
+                }
+            }
+        }
+   
         
         static void Main(string[] args)
         {
@@ -287,7 +340,24 @@ namespace homework
             Console.WriteLine("Домашняя работа  8.1");
             SearchMail();
 
-            
+
+            Console.WriteLine("Домашняя работа  8.2");
+
+            List<Song>  songs = new List<Song>();
+            int counsong = 4;
+            for (int i = 0; i < counsong; i++)
+            {
+                Console.WriteLine("Введите название песни");
+                string name = Console.ReadLine();
+                Console.WriteLine("Введите артиста");
+                string author = Console.ReadLine();
+                songs.Add(new Song(name, author));
+            }
+            Song.SearchEqualsSongs(songs);
+
+            Console.WriteLine("Домашняя работа ");
+
+
             Console.ReadKey();
 
             }
