@@ -9,11 +9,11 @@ namespace _23._10._2021
     class AssistantDeveloper:Employee
     {
         
-        public AssistantDeveloper(string name, ref int lastID, Employee head) : base(name, ref lastID, head)
+        public AssistantDeveloper(string name, ref int lastID, Employee head) : base(name, lastID, head)
         {
 
         }
-        public AssistantDeveloper(string name, string surname, Employee head, ref int lastID) : base(name, surname, head, ref lastID)
+        public AssistantDeveloper(string name,  Employee head, ref int lastID) : base(name, head, ref lastID)
         {
 
         }

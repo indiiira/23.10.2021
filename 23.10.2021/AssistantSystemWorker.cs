@@ -13,7 +13,7 @@ namespace _23._10._2021
         {
 
         }
-        public AssistantSystemWorker(string name, string surname, Employee head, ref int lastID) : base(name, surname, head, ref lastID)
+        public AssistantSystemWorker(string name, Employee head, ref int lastID) : base(name, head, ref lastID)
         {
 
         }

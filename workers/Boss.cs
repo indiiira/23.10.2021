@@ -4,19 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _23._10._2021
+namespace workers
 {
-    class Boss:Employee
+    class Boss : Employee
     {
-        public Boss()
-        {
-
-        }
         public Boss(string name, Employee head) : base(name, head)
         {
 
         }
-
-    
     }
 }

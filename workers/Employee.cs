@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _23._10._2021
+namespace workers
 {
     abstract class Employee
     {
-        public Sektor sektor { get; private set; }
+        public Sektor sektor { get;  set; }
         public int id { get; }
         public string name { get; set; }
 
@@ -16,7 +16,7 @@ namespace _23._10._2021
         public Department department { get; set; }
         public Employee head { get; set; }
 
-        public Employee(string name, Employee head)
+        public Employee(string name, string surname, Employee head)
         {
             id = lastId++;
             this.name = name;
@@ -37,31 +37,6 @@ namespace _23._10._2021
             this.head = head;
 
         }
-
-        public Employee(string name,  Employee head, ref int lastId)
-        {
-            id = lastId++;
-            this.name = name;
-
-            this.head = head;
-
-        }
-        public Employee(string name,  int lastId, Employee head)
-        {
-            id = lastId++;
-            this.name = name;
-
-            this.head = head;
-
-        }
-        public Employee(string name, ref int lastId, Employee head)
-        {
-            id = lastId++;
-            this.name = name;
-            this.department = department;
-            this.head = head;
-
-        }
         public Employee(string name, Department department, Sektor sektor, Employee head)
         {
             id = lastId++;
@@ -71,23 +46,49 @@ namespace _23._10._2021
             this.sektor = sektor;
 
         }
+        public Employee(string name, Employee head)
+        {
+            
+            this.name = name;
+            
+            this.head = head;
+         
+
+        }
         public Employee() { }
         public List<Task> selfTasks = new List<Task>();
 
 
         public void GiveTask(Employee employeeTo, Task task)
         {
-            if (employeeTo.head.id == id)
+            if (!(employeeTo.head == null))
             {
-                employeeTo.selfTasks.Add(task);
+
+
+                if (employeeTo.head.id == id)
+                {
+                    if (!(employeeTo.sektor.sektor == null))
+                    {
+                        employeeTo.selfTasks.Add(task);
+                        Console.WriteLine($"имя :  {employeeTo.name} отдел :  {employeeTo.department.department} сектор :  {employeeTo.sektor.sektor}  задача :{employeeTo.selfTasks.Last().name}");
+                    }
+                    employeeTo.selfTasks.Add(task);
+
+                }
+
+                else
+                {
+                    Console.WriteLine("нельзя назначить задачу");
+
+                }
             }
             else
             {
                 Console.WriteLine("нельзя назначить задачу");
-            }
 
+            }
         }
+
 
     }
 }
-

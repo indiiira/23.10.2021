@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Collections.Generic;
+
 
 namespace homework
 {
@@ -106,22 +106,22 @@ namespace homework
 
             int count = 0;
             string temp;
-            while (info.ReadLine()!=null)
+            while (info.ReadLine() != null)
             {
                 count++;
             }
-           info = new StreamReader("info.txt");
-           
-           for (int i=0; i<count; i++)
+            info = new StreamReader("info.txt");
+
+            for (int i = 0; i < count; i++)
             {
-                string[] mailinf = info.ReadLine().Replace(" ","").Split('#');
+                string[] mailinf = info.ReadLine().Replace(" ", "").Split('#');
                 temp = mailinf[1];
-                File.AppendAllText("info2.txt",temp+ "\n");
+                File.AppendAllText("info2.txt", temp + "\n");
             }
-            
+
         }
-        
-    
+
+
         public static string Swap(string s)
         {
             char[] st = s.ToCharArray();
@@ -138,7 +138,7 @@ namespace homework
                 this.author = author;
                 this.name = name;
             }
-               public string Name
+            public string Name
             {
                 get { return name; }
             }
@@ -180,189 +180,189 @@ namespace homework
                 }
             }
         }
-   
-        
+
+
         static void Main(string[] args)
         {
-            //Console.WriteLine("Упражнение 8.1");
-            //var bankinfo = new Bank();
-            //bool flag = true;
-            //Bank save = new Bank();
-            //Bank corrent = new Bank();
+            Console.WriteLine("Упражнение 8.1");
+            var bankinfo = new Bank();
+            bool flag = true;
+            Bank save = new Bank();
+            Bank corrent = new Bank();
 
-            //while (flag)
-            //{
-            //    Console.WriteLine("Введите команды:заполнить сберегательный, заполнить текущий, вывести сберегательный,вывести текущий, снять со счета, положить на счет, выход, перевести");
-
-            //    string act = Console.ReadLine().ToLower();
-            //    if (act.Equals("выход"))
-            //    {
-            //        flag = false;
-            //    }
-            //    else if (act.Equals("заполнить сберегательный"))
-            //    {
-            //        Console.WriteLine("Введите сумму");
-            //        decimal money;
-            //        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //        {
-            //            Console.WriteLine("Введите целое число ");
-            //        }
-            //        save.FillSaving(money);
-
-            //    }
-            //    else if (act.Equals("заполнить текущий"))
-            //    {
-            //        Console.WriteLine("Введите сумму");
-            //        decimal money;
-            //        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //        {
-            //            Console.WriteLine("Введите целое число ");
-            //        }
-            //        corrent.FillCorrent(money);
-            //    }
-            //    else if (act.Equals("вывести сберегательный"))
-            //    {
-            //        save.WriteTheDataOfSavingType();
-            //    }
-            //    else if (act.Equals("вывести текущий"))
-            //    {
-            //        corrent.WriteTheDataOfCorrentType();
-            //    }
-
-            //    else if (act.Equals("снять со счета"))
-            //    {
-            //        decimal output;
-            //        Console.Write("Choose the type of account : saving or corrent\t\t");
-            //        string type0 = Console.ReadLine().ToLower();
-            //        if (type0.Equals("saving"))
-            //        {
-            //            Console.Write("введите сумму");
-            //            decimal money;
-            //            while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //            {
-            //                Console.WriteLine("Incorrect volue money");
-            //            }
-            //            save.deposit(money);
-            //        }
-            //        else if (type0.Equals("corrent"))
-            //        {
-            //            Console.Write("введите сумму ");
-            //            decimal money;
-            //            while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //            {
-            //                Console.WriteLine("Incorrect volue money");
-            //            }
-            //            corrent.deposit(money);
-            //        }
-            //    }
-
-
-
-            //    else if (act.Equals("перевести"))
-            //    {
-            //        Console.WriteLine("from corrent or saving?");
-            //        string str = Console.ReadLine();
-            //        if (Equals(str, "corrent"))
-            //        {
-            //            Console.WriteLine("Сколько?");
-            //            decimal transfer;
-            //            while (!decimal.TryParse(Console.ReadLine(), out transfer) || transfer < 0)
-            //            {
-            //                Console.WriteLine("Incorrect value of money");
-            //            }
-            //            corrent.Moneytransfer(save, transfer);
-            //        }
-            //        if (Equals(str, "saving"))
-            //        {
-            //            Console.WriteLine("Сколько?");
-            //            decimal transfer;
-            //            while (!decimal.TryParse(Console.ReadLine(), out transfer) || transfer < 0)
-            //            {
-            //                Console.WriteLine("Incorrect value of money");
-            //            }
-            //            save.Moneytransfer(corrent, transfer);
-            //        }
-            //    }
-            //    else if (act.Equals("снять"))
-            //    {
-            //        Console.Write("Choose the type of account : saving or corrent\t\t");
-            //        string type0 = Console.ReadLine().ToLower();
-            //        if (type0.Equals("saving"))
-            //        {
-            //            Console.Write("введите сумму ");
-            //            decimal money;
-            //            while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //            {
-            //                Console.WriteLine("Incorrect volue money");
-            //            }
-            //            save.withdraw(money);
-            //        }
-            //        else if (type0.Equals("corrent"))
-            //        {
-            //            Console.Write("введите сумму");
-            //            decimal money;
-            //            while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
-            //            {
-            //                Console.WriteLine("Incorrect volue money");
-            //            }
-            //            corrent.withdraw(money);
-            //        }
-            //    }
-
-
-            //    Console.WriteLine("Упражнение 8.2");
-            //    Console.WriteLine("Введите строку");
-            //    string s = Console.ReadLine();
-            //    Console.WriteLine(Swap(s));
-
-
-            //Console.WriteLine("Упражнение 8.3");
-            //Console.WriteLine("Введите имя файла");
-            //string file = Console.ReadLine()+".txt";
-            //if (File.Exists(file) && !file.Equals("2.txt"))
-            //{
-            //    StreamReader f = new StreamReader(file);
-            //    file = f.ReadToEnd().ToUpper();
-            //    File.AppendAllText("2.txt", file);
-            //    f.Close();
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Файл не найден");
-            //}
-
-            //Console.WriteLine("Упражение 8.4");
-            //Console.Write("Введите строку-->\t");
-            //object obj = Console.ReadLine();
-            //IfisIFormatTable(obj);
-            //Console.Clear();
-
-            Console.WriteLine("Домашняя работа  8.1");
-            SearchMail();
-
-
-            Console.WriteLine("Домашняя работа  8.2");
-
-            List<Song>  songs = new List<Song>();
-            int counsong = 4;
-            for (int i = 0; i < counsong; i++)
+            while (flag)
             {
-                Console.WriteLine("Введите название песни");
-                string name = Console.ReadLine();
-                Console.WriteLine("Введите артиста");
-                string author = Console.ReadLine();
-                songs.Add(new Song(name, author));
-            }
-            Song.SearchEqualsSongs(songs);
+                Console.WriteLine("Введите команды:заполнить сберегательный, заполнить текущий, вывести сберегательный,вывести текущий, снять со счета, положить на счет, выход, перевести");
 
-            Console.WriteLine("Домашняя работа ");
+                string act = Console.ReadLine().ToLower();
+                if (act.Equals("выход"))
+                {
+                    flag = false;
+                }
+                else if (act.Equals("заполнить сберегательный"))
+                {
+                    Console.WriteLine("Введите сумму");
+                    decimal money;
+                    while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                    {
+                        Console.WriteLine("Введите целое число ");
+                    }
+                    save.FillSaving(money);
+
+                }
+                else if (act.Equals("заполнить текущий"))
+                {
+                    Console.WriteLine("Введите сумму");
+                    decimal money;
+                    while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                    {
+                        Console.WriteLine("Введите целое число ");
+                    }
+                    corrent.FillCorrent(money);
+                }
+                else if (act.Equals("вывести сберегательный"))
+                {
+                    save.WriteTheDataOfSavingType();
+                }
+                else if (act.Equals("вывести текущий"))
+                {
+                    corrent.WriteTheDataOfCorrentType();
+                }
+
+                else if (act.Equals("снять со счета"))
+                {
+   
+                    Console.Write("Choose the type of account : saving or corrent\t\t");
+                    string type0 = Console.ReadLine().ToLower();
+                    if (type0.Equals("saving"))
+                    {
+                        Console.Write("введите сумму");
+                        decimal money;
+                        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                        {
+                            Console.WriteLine("Incorrect volue money");
+                        }
+                        save.deposit(money);
+                    }
+                    else if (type0.Equals("corrent"))
+                    {
+                        Console.Write("введите сумму ");
+                        decimal money;
+                        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                        {
+                            Console.WriteLine("Incorrect value money");
+                        }
+                        corrent.deposit(money);
+                    }
+                }
 
 
-            Console.ReadKey();
+
+                else if (act.Equals("перевести"))
+                {
+                    Console.WriteLine("from corrent or saving?");
+                    string str = Console.ReadLine();
+                    if (Equals(str, "corrent"))
+                    {
+                        Console.WriteLine("Сколько?");
+                        decimal transfer;
+                        while (!decimal.TryParse(Console.ReadLine(), out transfer) || transfer < 0)
+                        {
+                            Console.WriteLine("Incorrect value of money");
+                        }
+                        corrent.Moneytransfer(save, transfer);
+                    }
+                    if (Equals(str, "saving"))
+                    {
+                        Console.WriteLine("Сколько?");
+                        decimal transfer;
+                        while (!decimal.TryParse(Console.ReadLine(), out transfer) || transfer < 0)
+                        {
+                            Console.WriteLine("Incorrect value of money");
+                        }
+                        save.Moneytransfer(corrent, transfer);
+                    }
+                }
+                else if (act.Equals("снять"))
+                {
+                    Console.Write("saving or corrent");
+                    string type0 = Console.ReadLine().ToLower();
+                    if (type0.Equals("saving"))
+                    {
+                        Console.Write("введите сумму ");
+                        decimal money;
+                        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                        {
+                            Console.WriteLine("Incorrect volue money");
+                        }
+                        save.withdraw(money);
+                    }
+                    else if (type0.Equals("corrent"))
+                    {
+                        Console.Write("введите сумму");
+                        decimal money;
+                        while (!decimal.TryParse(Console.ReadLine(), out money) || money < 0)
+                        {
+                            Console.WriteLine("Incorrect volue money");
+                        }
+                        corrent.withdraw(money);
+                    }
+                }
+
+
+                Console.WriteLine("Упражнение 8.2");
+                Console.WriteLine("Введите строку");
+                string s = Console.ReadLine();
+                Console.WriteLine(Swap(s));
+
+
+                Console.WriteLine("Упражнение 8.3");
+                Console.WriteLine("Введите имя файла");
+                string file = Console.ReadLine() + ".txt";
+                if (File.Exists(file) && !file.Equals("2.txt"))
+                {
+                    StreamReader f = new StreamReader(file);
+                    file = f.ReadToEnd().ToUpper();
+                    File.AppendAllText("2.txt", file);
+                    f.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Файл не найден");
+                }
+
+                Console.WriteLine("Упражение 8.4");
+                Console.Write("Введите строку-->\t");
+                object obj = Console.ReadLine();
+                IfisIFormatTable(obj);
+                Console.Clear();
+
+                Console.WriteLine("Домашняя работа  8.1");
+                SearchMail();
+
+
+                Console.WriteLine("Домашняя работа  8.2");
+
+                List<Song> songs = new List<Song>();
+                int counsong = 4;
+                for (int i = 0; i < counsong; i++)
+                {
+                    Console.WriteLine("Введите название песни");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Введите артиста");
+                    string author = Console.ReadLine();
+                    songs.Add(new Song(name, author));
+                }
+                Song.SearchEqualsSongs(songs);
+
+
+
+
+                Console.ReadKey();
 
             }
         }
     }
 
-
+}
 
